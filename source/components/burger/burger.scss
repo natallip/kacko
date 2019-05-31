@@ -1,0 +1,42 @@
+.burger {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  z-index: 100;
+  &:hover {
+    transform: scale(1.2);
+  }
+  @include media1200 {
+    display: block;    
+  }
+  &__line:not(:last-child) {
+    margin-bottom: 5px;
+  }
+  &__line {
+    width: 25px;
+    height: 2px;
+    background-color: $text;
+  }
+  &.active {
+      z-index: 200;
+
+      .burger__line {
+        background: $accent;
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+        &:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+      }
+    }
+}
+
+.no-scroll {
+  height: 100vh;
+  overflow: hidden;
+}

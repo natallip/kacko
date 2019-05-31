@@ -1,0 +1,34 @@
+mixin section-form
+	section.section-form#section-form
+		+popup
+		.container
+			.box                
+				h2.box__title Онлайн-заявка на КАСКО
+				form.box__container#form.form(action="mail.php")
+					.form__row
+						select.form__select(name="mark" required) 
+							option(value="" disabled selected) Марка автомобиля
+							each item in data.marks
+								option(value= item.value)= item.text
+						select.form__select(name="model" required) 
+							option(value="" disabled selected) Модель
+							each item in data.models
+								option(value= item.value)= item.text
+						select.form__select(name="year" required) 
+							option(value="" disabled selected) Год
+							- var i = 2000;
+								while i < 2019
+									option(value= i)= i  
+									- i++;     
+					.form__row
+						input.form__input(type="text", name="name", placeholder="Ваше имя")                
+						input.form__input(type="tel", name="phone", placeholder="Телефон")
+						input.form__input.form__input--submit(type="submit" value="Отправить")
+						 
+			.section-advantages
+				each item, i in data.advantages
+					.advantage.wow.zoomIn(data-wow-duration="1s" data-wow-offset="20")
+						.advantage__number= i+1
+						.advantage__icon
+							+svg(item.icon)
+						.advantage__text= item.text       

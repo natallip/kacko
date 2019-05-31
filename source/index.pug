@@ -1,0 +1,17 @@
+extends static/pug/template
+include components/components
+
+block variables
+    - var title = 'КАCКО'
+    - var description = 'description'
+    - var keywords = 'keywords'
+
+block content
+
+    div.page__wrapper#fullpage
+        +section-first-screen
+        +section-form
+        +section-clients
+        +section-value
+        +section-map
+        +footer

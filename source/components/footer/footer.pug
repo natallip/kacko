@@ -1,0 +1,10 @@
+mixin footer
+    footer.footer
+        .container
+            .footer__wrap                
+                .footer__copyright Insure car © 2019
+                .footer__socials
+                    ul.socials
+                        each item in data.socials
+                            li.socials__item
+                                +svg(item)

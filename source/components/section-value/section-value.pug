@@ -1,0 +1,16 @@
+mixin section-value
+	section.section-value#section-value
+		.container
+			h3.title От чего зависит цена КАСКО
+			ul.value
+				each item in data.price
+					li.value__item
+						.value__icon
+							+svg(item.icon)
+						.value__text= item.text
+
+			.box
+				ul.box__container.composition
+					each item in data.composition
+						li.composition__item= item
+				h2.box__title Что может включать наша страховка

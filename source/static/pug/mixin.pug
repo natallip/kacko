@@ -1,0 +1,39 @@
+mixin svg (name, mod)
+    - mod = mod || ' '
+    svg(class="icon icon-" + name + ' ' + mod)
+        use(xlink:href="css/symbol/sprite.svg#" + name)
+
+mixin item (point)
+    .item
+        .item__img(style="background-image:url(images/"+ point.img + ")")
+        if point.hit
+            .item__promo.item__promo--hit Хит
+        if point.veg
+            .item__promo.item__promo--veg Veg
+        if point.hot
+            .item__promo.item__promo--hot
+        if point.new
+            .item__promo.item__promo--new
+                span new
+        .item__content
+            h4.item__title= point.title
+            p.item__descr= point.descr
+            if point.souce
+                .item__choose
+                    .item__choose-text Добавить
+                    .item__choose-count-wrap
+                        span.item__choose-plus &#43;
+                        span.item__choose-count 0
+                        span.item__choose-multi &#215;
+                    .item__choose-cost 0
+                        sup руб.
+                    .item__choose-add +
+                .item__souces
+                    select
+                        each option in data.souces
+                            option(value=option.name data-price=option.price)= option.name
+            .item__cost
+                .item__price=point.price
+                    sup руб
+                .item__count 1
+            button.btn.btn--basket В корзину

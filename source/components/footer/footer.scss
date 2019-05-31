@@ -1,0 +1,39 @@
+.footer {
+  background-color: $bg-color;
+  padding: 40px 0;
+  @include media768 {
+    padding: 20px 0;
+  } 
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+  }
+
+}
+.socials {
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__item {
+    cursor: pointer;
+    background: #fff;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    opacity: .5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      opacity: .8;
+    }
+    svg {
+      width: 15px;
+      height: 15px;
+      fill: #000;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+mixin section-clients
+	section.section-clients#section-clients
+		.container
+			h3.title Наши клиенты
+			.section-clients__list#clients.owl-carousel.owl-theme
+				each item in data.clients
+					.client.item
+						.client__photo(style="background-image:url(/images/"+ item.photo + ")")   
+						.client__model= item.model
+						.client__year= item.year
+							span год выпуска
+						.client__amount= item.amount
+							span рублей в год
+						.client__block
+							.client__user(style="background-image:url(/images/"+ item.user + ")")   
+							.client__review
+								h4= item.name
+								p= item.review    
+						.client__logo.logo
+							.logo__text Auto insurance   
+		
+			.section-clients__form#callback
+				+popup
+				.section-clients__form-wrap  
+					h3.title Закажите страхование автомобиля КАСКО
+					.subtitle и наш специалист даст вам квалифицированную консультацию
+					form#form-callback.form-callback(action="callback")
+						.form__span заполните форму
+						input.form__input--call(type="text", name="name", placeholder="Ваше имя")                
+						input.form__input--call(type="tel", name="phone", placeholder="Телефон")
+						input.form__input--call.form__call--submit(type="submit" value="Заказать звонок")
